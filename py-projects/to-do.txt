@@ -1,0 +1,14 @@
+Name Genarator
+Temperature Converter
+Simple Encryption/Decryption
+HangMan
+Reverse a String
+Password Genarator
+Count the words in a string
+Static Website Generator
+Snake Game
+IMP Interpreter
+Ftp Client
+Insertion sort
+Bubble Sort
+Sudoku Solver
