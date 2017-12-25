@@ -8,16 +8,22 @@ Created on Mon Dec 25 22:42:46 2017
 
 import paramiko
 
-def ssh(hostname,port,username,password):
+def ssh(server,port,username,password):
     try:
-        client = paramiko.Transport((hostname, port))
+        client = paramiko.Transport((server, port))
         client.connect(username=username, password=password)
         return client
     except SSHException as e:
-        print("Request rejected by",hostname)
+        print("Request rejected by",server)
 
 
 def ssh_command(client,command):
+    """
+    Send command.
+    
+    The channel will get closed after execution of the command.
+    Works like per shell one command.
+    """
     result = []
     err_msg = []
     nbytes = 4096
@@ -48,7 +54,7 @@ def ssh_command(client,command):
 
 
 if __name__ == '__main__':
-    hostname = '192.168.1.9'
+    server = '192.168.1.9'
     port = 22
     username = 'toran' 
     password = '\''
@@ -63,7 +69,7 @@ if __name__ == '__main__':
     commands = [uptime_command, mem_usage_command, cpu_usage_command]
     
     try:
-        client = ssh(hostname,port,username,password)   
+        client = ssh(server,port,username,password)   
         for command in commands:
             res, err = ssh_command(client, command)
             results.append(res)
