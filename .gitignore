@@ -106,4 +106,9 @@ ENV/
 .idea
 .idea/
 .idea/*
+
+#test files
+test_module.py
+temp.py
+
 # End of https://www.gitignore.io/api/python
