@@ -10,15 +10,24 @@ import smtplib
 from email.mime.text import MIMEText
 
 
-SMTP_SERVER = {'yahoo':"smtp.mail.yahoo.com",
+SMTP_SERVER = {
+               'zoho': "smtp.sendgrid.net",
+               'yahoo': "smtp.mail.yahoo.com",
                'gmail': "smtp.gmail.com",
                }
-SMTP_PORT = {'yahoo':587,
+SMTP_PORT = {
+             'zoho':587,
+             'yahoo':587,
              'gmail':587,
              }
-SMTP_USERNAME = "toran.sahu@yahoo.com"
+
+# Please select any one server/port from above
+DEFAULT_SERVER = SMTP_SERVER['zoho']
+DEFAULT_PORT = SMTP_PORT['zoho']
+
+SMTP_USERNAME = "noreply@etherealmachines.com" # "toran.sahu@yahoo.com"
 SMTP_PASSWORD = "password"
-EMAIL_FROM = "toran.sahu@yahoo.com"
+EMAIL_FROM = "noreply@etherealmachines.com" # "toran.sahu@yahoo.com"
 EMAIL_TO = "kanishka.ethereal@gmail.com"
 EMAIL_SUBJECT = "REMINDER:"
 msg_text = """
@@ -172,7 +181,7 @@ def send_email():
 
     debuglevel = True
     try:
-        mail = smtplib.SMTP(SMTP_SERVER['yahoo'], SMTP_PORT['yahoo'])
+        mail = smtplib.SMTP(DEFAULT_SERVER, DEFAULT_PORT)
         mail.set_debuglevel(debuglevel)
         mail.starttls()
         mail.login(SMTP_USERNAME, SMTP_PASSWORD)
