@@ -1,0 +1,11 @@
+- django-contrib-comments - for built-in threaded comments
+- Pillow - for image resizing (Python Imaging Library fork)
+- grappelli-safe - admin skin (Grappelli fork)
+- filebrowser-safe - for managing file uploads (FileBrowser fork)
+- bleach and BeautifulSoup - for sanitizing markup in content
+- pytz and tzlocal - for timezone support
+- chardet - for supporting arbitrary encoding in file uploads
+- django-modeltranslation - for multi-lingual content (optional)
+- django-compressor - for merging JS/CSS assets (optional)
+- requests and requests_oauthlib - for interacting with external APIs
+- pyflakes and pep8 - for running the test suite (optional)
